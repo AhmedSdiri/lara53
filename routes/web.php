@@ -19,7 +19,9 @@ Route::get('/','PagesController@index');
  Route::get('users', ['uses' => 'UsersController@index']);
  Route::get('users/create', ['uses' => 'UsersController@create']);
  Route::post('users', ['uses' => 'UsersController@store']);
+//profile composer route 
 
+Route::get('/profile','PagesController@profile');
 
  //authenfication
 Auth::routes();

@@ -15,11 +15,15 @@ class PagesController extends Controller
      */
     public function index()
     {
-        if(View::exists('pages.index.'))
+        if( View::exists('pages.index'))
         {
-              return view(pages.index);
+              return view('pages.index')->with(['text' => '<b>Laravel Index</b>'])->with(['name' => '<b>My Name</b>'])->with(['country' => '<b>Sweden</b>']);
         }
-        return 'No view available';
+        else
+        {
+              return 'No view available';
+        }
+      
       
     }
 
@@ -87,5 +91,9 @@ class PagesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function profile()
+    {
+        return view('pages.profile');
     }
 }
