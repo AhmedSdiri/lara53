@@ -15,15 +15,33 @@
 	return realpath(base_path('resources/views'));
     return view('welcome');
 });*/
-Route::get('/','PagesController@index');
- Route::get('users', ['uses' => 'UsersController@index']);
- Route::get('users/create', ['uses' => 'UsersController@create']);
+  Route::get('/','PagesController@index');
+  
+ //middleware
+// Route::get('users','UsersController@index')->middleware('my_auth');
+  Route::get('users/create', ['uses' => 'UsersController@create']);
  Route::post('users', ['uses' => 'UsersController@store']);
-//profile composer route 
-
-Route::get('/profile','PagesController@profile');
+// the global auth 
 
  //authenfication
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+//bladetest
+Route::get('/blade','PagesController@blade');
+
+//no need for this one becaause it is the route group
+/*Route::get('users','UsersController@index')->middleware('auth');*/
+
+
+
+//route group
+
+Route::group(['middleware' => 'auth', 'anothermiddlware'], function(){
+	 Route::get('users','UsersController@index');
+       //profile composer route 
+
+      Route::get('/profile','PagesController@profile');
+      Route::get('/settings','PagesController@settings');
+});

@@ -26,7 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    //instead of ucfirst in the register controlller create function 
+    //instead of ucfirst in the register controlller create function
+    //mutator 
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = ucfirst($value);
@@ -35,6 +36,7 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+    //accessor
     public function getNameAttribute($value)
     {
         return 'User :' .$value;

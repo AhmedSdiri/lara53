@@ -96,4 +96,16 @@ class PagesController extends Controller
     {
         return view('pages.profile');
     }
+
+    public function settings()
+    {
+      return view('pages.settings');
+    }
+    public function blade()
+    {
+        //this gender variable is for testing if else...
+        $gender = 'male';
+        $text = 'hello there';
+        return view('blade.bladetest')->with(compact('gender','text'));
+    }
 }

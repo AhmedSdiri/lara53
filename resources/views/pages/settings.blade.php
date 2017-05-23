@@ -5,11 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Profile page</div>
+                <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-            
-                        <p>{{ $married }}</p>
-                        <p>{{ $age }}</p>
+                   <h2>Hello !  {{ $myname }} </h2>
+                   
+                   <h3>{{ $married }}</h3>
+                   <h3>{{ $test }}</h3>
+                    <h3>{{ $age }}</h3>
+                     
                 </div>
             </div>
         </div>

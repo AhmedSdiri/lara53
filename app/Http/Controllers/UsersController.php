@@ -15,12 +15,18 @@ class UsersController extends Controller
     public function index()
     {
         
-          $users = [
+         /* $users = [
           '0' => ['fn'=>'admin', 'ln'=> 'admin'],
           '1' =>['fn'=>'ahmed', 'ln'=> 'sd']];
 
-          
-           return view('admin/users/index', compact('users'));
+          */
+          //another method to pass the users variable vid 17
+
+                //  $users = User::all();
+          // the is also simple^paginate method for pagination
+                  $users = User::paginate(10);
+                  //return $users;
+                  return view('admin/users/index',compact('users'));
     }
 
     /**
